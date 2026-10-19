@@ -30,19 +30,24 @@ do {
             let temAlergia = prompt('Tem alergia? (sim/nao): ').trim().toLowerCase()
             if (temAlergia === 'sim') {
                 let alergia = prompt('Alergia: ').trim()
-                alergias.push(alergia)
+                if (alergia !== '') {
+                    alergias.push(alergia)
+                }
+                    
                 while (temAlergia === 'sim') {
                     temAlergia = prompt('Outra alergia? (sim/nao): ').trim().toLowerCase()
                     if (temAlergia === 'sim') {
                         alergia = prompt('Alergia: ').trim()
-                        alergias.push(alergia)
+                        if (alergia !== '') {
+                            alergia.push(alergia)
+                        }
                     }
                 }
             }
 
             if (adicionarPaciente(pacientes, {cpf, nome, idade, alergias}))
                 console.log('Paciente cadastrado com sucesso!')
-
+            console.log(pacientes)
             break
         case '0':
             console.log('Até logo!')
