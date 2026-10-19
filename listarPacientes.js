@@ -3,4 +3,11 @@ export default function listarPacientes(pacientes) {
         console.log('Nenhum paciente cadastrado')
         return
     }
+
+    pacientes.forEach((paciente) => {
+        console.log(`\nID: ${paciente.id}`)
+        console.log(`Nome: ${paciente.nome}`)
+        console.log(`CPF: ${paciente.cpf}`)
+        console.log(`Alergias: ${paciente.alergias.length === 0 ? 'Nenhuma' : paciente.alergias.join(', ')}`)
+    })
 }
