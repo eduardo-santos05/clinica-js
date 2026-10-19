@@ -6,7 +6,7 @@ export default function listarPacientes(pacientes) {
 
     pacientes.forEach((paciente) => {
         console.log(`\nID: ${paciente.id}`)
-        console.log(`Nome: ${paciente.nome}`)
+        console.log(`Nome: ${paciente.nome} (${paciente.idade} anos)`)
         console.log(`CPF: ${paciente.cpf}`)
         console.log(`Alergias: ${paciente.alergias.length === 0 ? 'Nenhuma' : paciente.alergias.join(' | ')}`)
     })
