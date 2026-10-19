@@ -5,4 +5,10 @@ export default function adicionarPaciente(pacientes, novoPaciente) {
             return false
         }
     }
+
+    if (pacientes.length > 0) {
+        novoPaciente.id = pacientes[pacientes.length - 1].id + 1
+    } else {
+        novoPaciente.id = 1
+    }
 }
