@@ -50,6 +50,9 @@ do {
                 console.log('Paciente cadastrado com sucesso!')
             
             break
+        case '2':
+            listarPacientes(pacientes)
+            break
         case '0':
             console.log('Até logo!')
             break
