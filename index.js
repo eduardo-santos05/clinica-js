@@ -2,6 +2,7 @@ import PromptSync from "prompt-sync"
 
 import pacientes from './pacientes.js'
 import adicionarPaciente from './adicionarPaciente.js'
+import listarPacientes from "./listarPacientes.js"
 
 const prompt = PromptSync()
 
@@ -47,7 +48,7 @@ do {
 
             if (adicionarPaciente(pacientes, {cpf, nome, idade, alergias}))
                 console.log('Paciente cadastrado com sucesso!')
-            console.log(pacientes)
+            
             break
         case '0':
             console.log('Até logo!')
