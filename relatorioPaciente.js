@@ -25,4 +25,9 @@ export default function relatorioPacientes(pacientes) {
     }
     let mediaIdade = somaIdade / pacientes.length
     
+    relatorio += `Total de pacientes: ${totalPacientes}\n`
+    relatorio += `Média de idade: ${mediaIdade} anos\n`
+    relatorio += `Pacientes com alergia: ${qtdPacientesAlergia}\n`
+    relatorio += `Paciente mais velho: ${pacienteMaisVelhoNome} (${pacienteMaisVelhoIdade} anos)\n`
+    fs.appendFileSync("relatorio.txt", relatorio, "utf8")
 }
