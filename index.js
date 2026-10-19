@@ -100,7 +100,13 @@ do {
             }
             break
         }
-            
+
+        case '5': {
+            relatorioPacientes(pacientes)
+            console.log('Relatório gerado com sucesso!')
+            break
+        }
+
         case '0': {
             console.log('Até logo!')
             break
