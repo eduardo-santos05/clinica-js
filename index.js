@@ -5,6 +5,7 @@ import adicionarPaciente from './adicionarPaciente.js'
 import listarPacientes from "./listarPacientes.js"
 import atualizarPaciente from "./atualizarPaciente.js"
 import removerPaciente from "./removerPaciente.js"
+import relatorioPacientes from "./relatorioPaciente.js"
 
 const prompt = PromptSync()
 
