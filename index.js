@@ -4,6 +4,7 @@ import pacientes from './pacientes.js'
 import adicionarPaciente from './adicionarPaciente.js'
 import listarPacientes from "./listarPacientes.js"
 import atualizarPaciente from "./atualizarPaciente.js"
+import removerPaciente from "./removerPaciente.js"
 
 const prompt = PromptSync()
 
@@ -85,6 +86,17 @@ do {
                 console.log('Paciente atualizado com sucesso!')
             }
 
+            break
+        }
+
+        case '4': {
+            let cpf = prompt('CPF do paciente: ')
+            let confirmacao = prompt('Tem certeza? (sim/nao): ').trim().toLowerCase()
+            if (confirmacao === 'sim') {
+                removerPaciente(pacientes, cpf)
+            } else {
+                console.log('Remoção cancelada.')
+            }
             break
         }
             
