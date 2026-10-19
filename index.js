@@ -3,6 +3,7 @@ import PromptSync from "prompt-sync"
 import pacientes from './pacientes.js'
 import adicionarPaciente from './adicionarPaciente.js'
 import listarPacientes from "./listarPacientes.js"
+import atualizarPaciente from "./atualizarPaciente.js"
 
 const prompt = PromptSync()
 
@@ -23,7 +24,7 @@ do {
     opcao = prompt('Escolha uma opção: ')
 
     switch (opcao) {
-        case '1':
+        case '1': {
             let cpf = prompt('CPF: ').trim()
             let nome = prompt('Nome: ').trim()
             let idade = Number(prompt('Idade: ').trim())
@@ -40,7 +41,7 @@ do {
                     if (temAlergia === 'sim') {
                         alergia = prompt('Alergia: ').trim()
                         if (alergia !== '') {
-                            alergia.push(alergia)
+                            alergias.push(alergia)
                         }
                     }
                 }
@@ -50,14 +51,51 @@ do {
                 console.log('Paciente cadastrado com sucesso!')
             
             break
-        case '2':
+        }
+            
+        case '2': {
             listarPacientes(pacientes)
             break
-        case '0':
+        }
+        
+        case '3': {
+            let id = Number(prompt('ID do paciente: ').trim())
+            let novoNome = prompt('Novo nome (Enter para manter): ').trim()
+            let novaIdade = prompt('Nova idade (Enter para manter): ').trim()
+            let novasAlergias = []
+            let trocarAlergias = prompt('Trocar as alergias? (sim/nao): ').trim().toLowerCase()
+            if (trocarAlergias === 'sim') {
+                let alergia = prompt('Alergia: ').trim()
+                if (alergia !== '') {
+                    novasAlergias.push(alergia)
+                }
+                let temOutraAlergia = 'sim'
+                while (temOutraAlergia === 'sim') {
+                    temOutraAlergia = prompt('Outra alergia? (sim/nao): ').trim().toLowerCase()
+                    if (temOutraAlergia === 'sim') {
+                        alergia = prompt('Alergia: ').trim()
+                        if (alergia !== '') {
+                            novasAlergias.push(alergia)
+                        }
+                    }
+                }
+            }
+
+            if (atualizarPaciente(pacientes, id, {nome: novoNome, idade: novaIdade === '' ? undefined : Number(novaIdade), alergias: novasAlergias })) {
+                console.log('Paciente atualizado com sucesso!')
+            }
+
+            break
+        }
+            
+        case '0': {
             console.log('Até logo!')
             break
-        default:
+        }
+            
+        default: {
             console.log('Opção inválida!')
             break
+        }  
     }
 } while(opcao !== '0')
